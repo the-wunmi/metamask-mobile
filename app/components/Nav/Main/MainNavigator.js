@@ -88,6 +88,7 @@ const WalletTabHome = () => (
 			component={ExperimentalSettings}
 			options={ExperimentalSettings.navigationOptions}
 		/>
+		<Stack.Screen name="NetworkSettings" component={NetworkSettings} options={NetworkSettings.navigationOptions} />
 	</Stack.Navigator>
 );
 
