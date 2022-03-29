@@ -54,6 +54,7 @@ import ErrorBoundary from '../ErrorBoundary';
 
 import { getRpcMethodMiddleware } from '../../../core/RPCMethods/RPCMethodMiddleware';
 import { useAppThemeFromContext, mockTheme } from '../../../util/theme';
+import downloadFile from '../../../util/browser/downloadFile';
 
 const { HOMEPAGE_URL, USER_AGENT, NOTIFICATION_NAMES } = AppConstants;
 const HOMEPAGE_HOST = 'home.metamask.io';
@@ -845,6 +846,7 @@ export const BrowserTab = (props) => {
 	 * Stops normal loading when it's ens, instead call go to be properly set up
 	 */
 	const onShouldStartLoadWithRequest = ({ url }) => {
+		console.log('onShouldStartLoadWithRequest');
 		if (isENSUrl(url)) {
 			go(url.replace(/^http:\/\//, 'https://'));
 			return false;
@@ -1351,6 +1353,7 @@ export const BrowserTab = (props) => {
 	/**
 	 * Main render
 	 */
+	 {console.log('Browser tab rendered')}
 	return (
 		<ErrorBoundary view="BrowserTab">
 			<View
@@ -1379,6 +1382,7 @@ export const BrowserTab = (props) => {
 							allowsInlineMediaPlayback
 							useWebkit
 							testID={'browser-webview'}
+							onFileDownload={({ nativeEvent: { downloadUrl } }) => downloadFile(downloadUrl)}
 						/>
 					)}
 				</View>
