@@ -29,7 +29,11 @@ export default {
 	},
 	MM_UNIVERSAL_LINK_HOST: 'metamask.app.link',
 	SAI_ADDRESS: '0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359',
+	/*
+	Change HOMEPAGE_URL value to be http://localhost:3000/ to test local version of https://home.metamask.io/
 	HOMEPAGE_URL: 'http://localhost:3000/',
+	*/
+	HOMEPAGE_URL: 'https://home.metamask.io/',
 	SHORT_HOMEPAGE_URL: 'MetaMask.io',
 	ZERO_ADDRESS: '0x0000000000000000000000000000000000000000',
 	USER_AGENT: Device.isAndroid()
